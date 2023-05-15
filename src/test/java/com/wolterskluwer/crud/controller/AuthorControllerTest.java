@@ -5,6 +5,7 @@ import com.wolterskluwer.crud.service.AuthorService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
@@ -25,6 +26,8 @@ class AuthorControllerTest {
 
     @Mock
     private AuthorService authorService;
+
+    @InjectMocks
     private AuthorController authorController;
 
     private static final Author author = new Author();
@@ -32,11 +35,6 @@ class AuthorControllerTest {
 
     private static final Integer ID = 1;
     private static final String EMAIL = "example@wolterskluwer.com";
-
-    @BeforeEach
-    void setUp() {
-        authorController = new AuthorController(authorService);
-    }
 
     @Test
     void authorAlreadyExists() {

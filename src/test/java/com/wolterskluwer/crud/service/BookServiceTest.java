@@ -5,6 +5,7 @@ import com.wolterskluwer.crud.repository.BookRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -22,6 +23,8 @@ class BookServiceTest {
 
     @Mock
     private BookRepository bookRepository;
+
+    @InjectMocks
     private BookService bookService;
 
     private static final Integer BOOK_ID = 1;
@@ -32,7 +35,6 @@ class BookServiceTest {
     @BeforeEach
     void setUp() {
         book.setId(BOOK_ID);
-        bookService = new BookService(bookRepository);
     }
 
     @Test

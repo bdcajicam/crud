@@ -5,6 +5,7 @@ import com.wolterskluwer.crud.repository.AuthorRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -22,6 +23,8 @@ class AuthorServiceTest {
 
     @Mock
     private AuthorRepository authorRepository;
+
+    @InjectMocks
     private AuthorService authorService;
     
     private static final Author author = new Author();
@@ -32,7 +35,6 @@ class AuthorServiceTest {
     @BeforeEach
     void setUp() {
         author.setId(ID);
-        authorService = new AuthorService(authorRepository);
     }
 
     @Test

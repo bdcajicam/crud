@@ -7,6 +7,7 @@ import com.wolterskluwer.crud.service.BookService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
@@ -29,6 +30,8 @@ class BookControllerTest {
     private BookService bookService;
     @Mock
     private AuthorService authorService;
+
+    @InjectMocks
     private BookController bookController;
 
     private static final Integer BOOK_ID = 1;
@@ -38,11 +41,6 @@ class BookControllerTest {
     private static final List<Book> books = Collections.singletonList(book);
 
     private static final Author author = new Author();
-
-    @BeforeEach
-    void setUp() {
-        bookController = new BookController(bookService, authorService);
-    }
 
     @Test
     void authorDoesNotExistsWhileCreatingBook() {
